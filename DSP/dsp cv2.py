@@ -49,7 +49,7 @@ class image():
         skio.imshow(self.im)
         skio.show()
 
-im = image('hao-06.jpg').brightneww_contrast(brightness=0, contrast=2.0).show()
+im = image('hao-01.jpg').brightneww_contrast(brightness=0, contrast=2.0).show()
 
 
     
