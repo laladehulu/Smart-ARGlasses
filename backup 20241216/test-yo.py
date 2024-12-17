@@ -19,6 +19,8 @@ from dsp import bright_contrast
 import RPi.GPIO as GPIO
 import threading as th
 import numpy as np
+import argostranslate.package
+import argostranslate.translate
 
 logging.basicConfig(level=logging.DEBUG)
 # Initialize the Picamera2
@@ -125,9 +127,12 @@ def makeDisplay():
     disp.clear()
     disp.ShowImage(disp.getbuffer(image1))
     disp_lock.release()
-    
+
+en_to_zh = dict()
 def translate_to_chinese(eng_str):
-    return eng_str[:3]
+    if eng_str not in en_to_zh.keys():
+        en_to_zh[eng_str] = argostranslate.translate.translate(eng_str, 'en', 'zh')
+    return en_to_zh[eng_str]
 
             
 
