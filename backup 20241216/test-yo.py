@@ -131,7 +131,10 @@ def makeDisplay():
 en_to_zh = dict()
 def translate_to_chinese(eng_str):
     if eng_str not in en_to_zh.keys():
+	#before_time = time.time()
         en_to_zh[eng_str] = argostranslate.translate.translate(eng_str, 'en', 'zh')
+	#after_time = time.time()
+	#print("PROFILING TRANSLATION TIME DIFFERENCE: ", before_time, after_time)
     return en_to_zh[eng_str]
 
             
